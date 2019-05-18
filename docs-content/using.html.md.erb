@@ -1,17 +1,40 @@
 ---
-title: Using YOUR-PRODUCT-NAME
+title: Using WSO2 API Manager
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to use YOUR-PRODUCT-NAME.
+This topic describes how to use WSO2 API Manager.
 
-##<a id='using'></a> Using YOUR-PRODUCT-NAME
+##<a id='using'></a> Using WSO2 API Manager
 
-**This topic should include any instructions for how to use the service or dashboard created by the tile. 
-Give procedures for how to perform the different functions offered by your product and provide screenshots where necessary.** 
 
-**You can also use this section to include information about Architecture and Troubleshooting for known errors. 
-If you include a Troubleshooting section, follow the Symptom/Explanation format used in the 
-[Okta Troubleshooting](http://docs.pivotal.io/p-identity/okta/troubleshooting.html) topic**.
+###<a id='view_status'></a> View Status
+
+In the Ops Manager, select the WSO2 API Manager for PCF tile, then select the **Status**
+tab to see the status of all WSO2 API Manager components. In this tab, you can see
+information such as CPU usage, memory usage, and other information.
+![Status](images/status.png)
+
+
+###<a id='access-dashboards'></a> Access Dashboards
+
+After the installation is complete, the management console, publisher, and store can be accessed
+via the following URLs where domain_name refers to the domain name of the PCF environment.
+
+* `https://wso2apim.sys.<domain_name>/carbon/`
+* `https://wso2apim.sys.<domain_name>/publisher/`
+* `https://wso2apim.sys.<domain_name>/store/`
+
+###<a id='access-logs'></a> Access Logs
+
+To access log files for WSO2 API Manager components, select the WSO2 API Manager
+tile in Ops Manager, open the **Status** tab, and request a download of the log file by selecting
+the download icon in the **LOGS** column. Then go to the **Logs** tab to download the log file
+locally.
+![Log-download](images/log-download.png)
+![Log-main](images/log-main.png)
+
+###<a id='documentation'></a> Documentation
+[WSO2 API Manager 2.6.0 Documentation](https://docs.wso2.com/display/AM260/)

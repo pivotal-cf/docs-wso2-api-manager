@@ -1,32 +1,103 @@
 ---
-title: Installing and Configuring YOUR-PRODUCT-NAME
+title: Installing and Configuring WSO2 API Manager
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to install and configure YOUR-PRODUCT-NAME.
+This topic describes how to install and configure WSO2 API Manager.
 
-##<a id='install'></a> Install and Configure YOUR-PRODUCT-NAME
+##<a id='install'></a> Install and Configure WSO2 API Manager
 
-To install the YOUR-PRODUCT-NAME file on the Ops Manager Installation Dashboard, do the following:
+To install the WSO2 API Manager file on the Ops Manager Installation Dashboard,
+do the following:
 
 1. Download the product file from Pivotal Network.
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the
+product file.
 
-1. Under the **Import a Product** button, click **+** next to the version number of YOUR-PRODUCT-NAME. 
+1. Under the **Import a Product** button, click **+** next to the version number of WSO2 API Manager.
 This adds the tile to your staging area.
 
-1. Click the newly added **YOUR-PRODUCT-NAME** tile.
+1. Click the newly added **WSO2 API Manager** tile.
 
-1. **This portion of the procedure should tell the users how to configure the newly added tile by
-walking them through the sections. Which fields should they fill out? What are the different
-checkboxes? Include relevant screenshots here.** 
+1. AZ and Network Assignments Page:
+    ![Zones](images/zone.png)
+    2. Place singleton jobs in: Select the AZ in which the API Manager VM needs to run.
+    2. Balance other jobs in: Select any combination of AZs.
+    2. Network: Select pcf-pas-network
+
+1. Database configurations page:
+    2. Registry Database Connection Information:
+        3. JDBC URL:
+            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&amp;useSSL=false`
+            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
+        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
+        being used.
+        3. Validation Query: SELECT 1
+        3. Username: Username for database
+        3. Password: Password for the database
+    2. User Management Database Connection Information:
+        3. JDBC URL:
+            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&amp;useSSL=false`
+            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
+        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
+        being used.
+        3. Validation Query: SELECT 1
+        3. Username: Username for database
+        3. Password: Password for the database
+    2. API Manager Database Connection Information:
+        3. JDBC URL:
+            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&amp;useSSL=false`
+            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
+        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
+        being used.
+        3. Validation Query: SELECT 1
+        3. Username: Username for database
+        3. Password: Password for the database
+    2. API Manager - Analytics Database connection information:
+        3. JDBC URL:
+            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&useSSL=false`
+            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
+        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
+        being used.
+        3. Validation Query: SELECT 1
+        3. Username: Username for database
+        3. Password: Password for the database
+    2. API Manager - Analytics Clustering Database connection information:
+        3. JDBC URL:
+            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&useSSL=false`
+            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
+        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
+        being used.
+        3. Validation Query: SELECT 1
+        3. Username: Username for database
+        3. Password: Password for the database
+    2. API Manager- Analytics persistence Database connection information:
+        3. JDBC URL:
+            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&useSSL=false`
+            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
+        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
+        being used.
+        3. Validation Query: SELECT 1
+        3. Username: Username for database
+        3. Password: Password for the database
+    2. Note that the JDBC URL for MySQL in (d), (e), (f), does not contain \&amp;. Instead, it indicates the & symbol.
+       This is due to the fact that in (a), (b) , &#40;c), configurations data are in XML format, and \&amp; is used as an escape character.
+       However, the configuration data in (d), (e), (f), are in YAML format and therefore, an escape character is not required.
+
+1. Trusted CA certificate page:
+   ![Cert](images/cert.png)
+   Add the content of the Trusted CA certificate used to configure the OPS Manager.
+
+1. License key page:
+   ![License-key](images/license-key.png)
+   Add the WSO2 license key corresponding to your WSO2 subscription. If you don’t have a license key,
+   please contact a [WSO2 account manager](https://wso2.com/contact/).
 
 1. Click **Save**.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install YOUR-PRODUCT-NAME tile.
+1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install WSO2 API
+Manager tile.
 
-**If needed, include additional configuration information below. For example, maybe there are
-configuration options not required for installation but which could be useful for certain users.**
