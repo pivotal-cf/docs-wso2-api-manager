@@ -1,5 +1,5 @@
 ---
-title: WSO2 API Manager (Beta<%# "beta" is preferred. %>)
+title: WSO2 API Manager for PCF (Beta)
 owner: Partners
 ---
 
@@ -12,18 +12,18 @@ and test purposes only. Do not use this product in a PCF production environment.
 </p>
 
 This documentation describes WSO2 API Manager for Pivotal Cloud
-Foundry (PCF), which installs the API management service
-[WSO2 API Manager 2.6.0](https://wso2.com/api-management/) on PCF. WSO2 API Manager for PCF provides full lifecycle API development, integration, and management.
+Foundry (PCF), which installs the API management service,
+[WSO2 API Manager 2.6.0](https://wso2.com/api-management/), on PCF. WSO2 API Manager for PCF provides full lifecycle API development, integration, and management.
 
 ## <a id='overview'></a>Overview
 
 WSO2 API Manager for PCF is a unique, open approach to full lifecycle API development, integration, and
-management. It allows extensibility and customization, and ensures freedom from lock-in. As part of
+management. It allows extensibility and customization, while ensuring freedom from lock-in. As part of
 the larger WSO2 Integration Agile Platform, it is a central component used to deploy and manage
 API-driven ecosystems. Its hybrid integration capabilities further simplify projects that span
-traditional as well as micro-service environments.
+traditional and micro-service environments.
 
-The Deployment Architecture for API Manager is as follows:
+The Deployment Architecture for the API Manager is as follows:
 
 ![Deployment](images/deployment.png)
 
@@ -32,17 +32,17 @@ The Deployment Architecture for API Manager is as follows:
 #### API Publisher
 
 API development is generally done by someone who understands the technical aspects of the API, interfaces, documentation, versions etc., while API management is typically carried out by someone who understands the business aspects of the APIs. In most business environments, API development is a responsibility that is distinct from API publication and management.
-WSO2 API Manager for PCF provides a Web interface called WSO2 API Publisher for API development and management. It is a structured UI designed for API creators to develop, document, scale, and version APIs, while also facilitating more API management-related tasks such as publishing API, monetization, analyzing statistics, and promoting.
+WSO2 API Manager for PCF provides a web interface called WSO2 API Publisher for API development and management. It is a structured UI designed for API creators to develop, document, scale, and version APIs, while also facilitating more API management-related tasks such as publishing an API, monetizating it, analyzing statistics, and promoting.
 
 #### API Store
 
-The API Store Web application provides a collaborative interface for API publishers to host and advertise their APIs and for API consumers to [self register](https://docs.wso2.com/display/AM260/Customizing+the+API+Store), discover, evaluate, subscribe to and use secured, protected, authenticated APIs.
+The API Store web application provides a collaborative interface for API publishers to host and advertise their APIs while also allowing for API consumers to [self register](https://docs.wso2.com/display/AM260/Customizing+the+API+Store), discover, evaluate, subscribe to and use, secure, protected, and authenticated APIs.
 
 #### API Gateway
 
-A runtime, backend component (an [API proxy](https://docs.wso2.com/display/EI611/Working+with+APIs)) developed using [WSO2 ESB](https://docs.wso2.com/display/EI611/WSO2+Enterprise+Integrator+Documentation). API Gateway secures, protects, manages, and scales API calls. It intercepts API requests, applies policies such as throttling and security using handlers, and manages API statistics.
+A runtime backend component ([API proxy](https://docs.wso2.com/display/EI611/Working+with+APIs)) developed using [WSO2 ESB](https://docs.wso2.com/display/EI611/WSO2+Enterprise+Integrator+Documentation). API Gateway secures, protects, manages, and scales API calls. It intercepts API requests, applies policies such as throttling and security using handlers, and manages API statistics.
 Upon validation of a policy, the Gateway passes web service calls to the actual backend. If the service call is a token request, the Gateway passes it directly to the [Key Manager](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-KeyManager).
-This component is horizontally scalable, it is possible to scale up to 20 gateway nodes.
+This component is horizontally scalable. It is possible to scale up to 20 Gateway nodes.
 
 #### Key Manager
 
@@ -56,14 +56,14 @@ For more information, see [Working with Throttling](https://docs.wso2.com/displa
 
 #### Analytics
 
-Additionally, monitoring and analytics are provided by the analytics component, WSO2 API Manager Analytics. This component provides a host of statistical graphs, an alerting mechanism on pre-determined events and a log analyzer. For more information, see [Analytics](https://docs.wso2.com/display/AM210/Analytics).
+Additionally, monitoring and analytics are provided by the analytics component, WSO2 API Manager Analytics. This component provides a host of statistical graphs, an alerting mechanism on pre-determined events, and a log analyzer. For more information, see [Analytics](https://docs.wso2.com/display/AM210/Analytics).
 
 ## <a id='features'></a>Key Features
 
 WSO2 API Manager for PCF includes the following key features:
 
 * Design and Prototype APIs
-* Publish APIs and Govern API Use
+* Publish APIs and Govern API use
 * Control Access and Enforce Security
 * Developer Portal
 * Manage the Developer Community
@@ -71,7 +71,7 @@ WSO2 API Manager for PCF includes the following key features:
 * Monitor and Monetize
 * Pluggable, Extensible, and Themeable
 * WSO2 Platform Multi-tenancy Support
-* API analytics
+* API Analytics
 
 
 
@@ -88,7 +88,7 @@ The following table provides version and version-support information about WSO2 
     </tr>
     <tr>
         <td>Release date</td>
-        <td>June 21, 2019</td>
+        <td>June 25, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
@@ -115,7 +115,7 @@ WSO2 API Manager has the following requirements:
 
 * SQL Database databases (MySQL or MS SQL) for storing data.
     * Database for storing user management
-        * For MySQL(versions before v5.7 use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/um-mysql.sql)
+        * For MySQL(versions before v5.7) use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/um-mysql.sql)
         * For MySQL(v5.7 later version) use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/um-mysql5.7.sql)
         * For MSSQL use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/um-mssql.sql)
     * Database for storing registry data
@@ -123,7 +123,7 @@ WSO2 API Manager has the following requirements:
         * For MySQL(v5.7 or later version) use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/reg-mysql5.7.sql)
         * For MSSQL use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/reg-mssql.sql)
     * Database for API Manager specific data
-        * For MySQL(versions before v5.7 use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/apim-mysql.sql)
+        * For MySQL(versions before v5.7) use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/apim-mysql.sql)
         * For MySQL(v5.7 or later version) use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/apim-mysql5.7.sql)
         * For MSSQL use [script](https://github.com/wso2/pivotal-cf-apim/blob/2.6.x/pattern-2/bosh-release/dbscripts/apim-mssql.sql)
     * Database for storing analytics data
@@ -136,13 +136,12 @@ WSO2 API Manager has the following requirements:
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about an issue email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to
-[dev@wso2.org](mailto:dev@wso2.org).
+[WSO2](mailto:dev@wso2.org).
 
 ## <a id='license'></a>License
 
 This tile contains the WSO2 products with its latest updates, which are under the End User License Agreement (EULA) 2.0.
 Read more about [EULA 2.0](https://wso2.com/licenses/wso2-update/2.0).
 
-You need a valid license key the corresponds to your WSO2 Subscription to install this tile. If you do not possess a valid license key,
+You need a valid license key that corresponds to your WSO2 Subscription to install this tile. If you do not possess a valid license key,
 contact a [WSO2 account manager](https://wso2.com/contact/).
