@@ -48,7 +48,7 @@ The API Store web application provides a collaborative interface for API publish
 ### API Gateway
 
 A runtime backend component ([API proxy](https://docs.wso2.com/display/EI611/Working+with+APIs)) developed using [WSO2 ESB](https://docs.wso2.com/display/EI611/WSO2+Enterprise+Integrator+Documentation). API Gateway secures, protects, manages, and scales API calls. It intercepts API requests, applies policies such as throttling and security using handlers, and manages API statistics.
-Upon validation of a policy, the Gateway passes web service calls to the actual backend.
+Upon validation of a policy, the Gateway passes web service calls to the backend exposed through the API Manager.
 If the service call is a token request, the Gateway passes it directly to the Key Manager.
 This component is horizontally scalable.
 It is possible to scale up to 20 Gateway nodes.

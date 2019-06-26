@@ -7,6 +7,57 @@ owner: Partners
 
 This topic describes how to install and configure WSO2 API Manager for PCF.
 
+##<a id='install'></a> Configure trusted CA certificates for GoRouter
+To configure trusted CA certificates for GoRouter, do the following:
+
+1. In Ops Manager, select the PAS Tile.
+1. Go to the **Network** pane in the **Settings** tab.
+1. Append the following to the **Certificate Authorities Trusted by Router and HAProxy**.
+
+    ```
+    -----BEGIN CERTIFICATE-----
+    MIIDSTCCAjGgAwIBAgIEAoLQ/TANBgkqhkiG9w0BAQsFADBVMQswCQYDVQQGEwJV
+    UzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxDTALBgNVBAoT
+    BFdTTzIxEjAQBgNVBAMTCWxvY2FsaG9zdDAeFw0xNzA3MTkwNjUyNTFaFw0yNzA3
+    MTcwNjUyNTFaMFUxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMN
+    TW91bnRhaW4gVmlldzENMAsGA1UEChMEV1NPMjESMBAGA1UEAxMJbG9jYWxob3N0
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluZFdW1ynitztkWLC6xK
+    egbRWxky+5P0p4ShYEOkHs30QI2VCuR6Qo4Bz5rTgLBrky03W1GAVrZxuvKRGj9V
+    9+PmjdGtau4CTXu9pLLcqnruaczoSdvBYA3lS9a7zgFU0+s6kMl2EhB+rk7gXluE
+    ep7lIOenzfl2f6IoTKa2fVgVd3YKiSGsyL4tztS70vmmX121qm0sTJdKWP4HxXyq
+    K9neolXI9fYyHOYILVNZ69z/73OOVhkh/mvTmWZLM7GM6sApmyLX6OXUp8z0pkY+
+    vT/9+zRxxQs7GurC4/C1nK3rI/0ySUgGEafO1atNjYmlFN+M3tZX6nEcA6g94Iav
+    yQIDAQABoyEwHzAdBgNVHQ4EFgQUtS8kIYxQ8UVvVrZSdgyide9OHxUwDQYJKoZI
+    hvcNAQELBQADggEBABfk5mqsVUrpFCYTZZhOxTRRpGXqoW1G05bOxHxs42Paxw8r
+    AJ06Pty9jqM1CgRPpqvZa2lPQBQqZrHkdDE06q4NG0DqMH8NT+tNkXBe9YTre3EJ
+    CSfsvswtLVDZ7GDvTHKojJjQvdVCzRj6XH5Truwefb4BJz9APtnlyJIvjHk1hdoz
+    qyOniVZd0QOxLAbcdt946chNdQvCm6aUOputp8Xogr0KBnEy3U8es2cAfNZaEkPU
+    8Va5bU6Xjny8zGQnXCXxPKp7sMpgO93nPBt/liX1qfyXM7xEotWoxmm6HZx8oWQ8
+    U5aiXjZ5RKDWCCq4ZuXl6wVsUz1iE61suO5yWi8=
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+    MIIDSTCCAjGgAwIBAgIEROGUEzANBgkqhkiG9w0BAQsFADBVMQswCQYDVQQGEwJV
+    UzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxDTALBgNVBAoT
+    BFdTTzIxEjAQBgNVBAMTCWxvY2FsaG9zdDAeFw0xNzEyMTEwNzE5MzBaFw0yNzEy
+    MDkwNzE5MzBaMFUxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMN
+    TW91bnRhaW4gVmlldzENMAsGA1UEChMEV1NPMjESMBAGA1UEAxMJbG9jYWxob3N0
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnfvZI92NRHQpuaX0VdoK
+    q9vy0YnOa7v+ECkLEXCfuXMBo5c+m6lzuMtdH7vAP/ONtg4N0om+zhbyvrQym2qT
+    PL/QoJLSUsgbNMIhiVqovbKZLsT6E9BM5b8KJjcUQ/zMYzfHhRnkJ/HkDBVAWeL7
+    wt22gAulUYVKrJMdDj9RbdBTKQ1qPCb8NUG/6YEuxQqJjAwP9EwconWDIYOZCSs9
+    dLzO1LVbwv6XcnZjsID3HnA6de6i8Iijwo8mlxvs6L1S7ZaQxatP1wPEqLz/FGC/
+    Rv9/lGAZqkQqfxYfIvTIudeToaCIBfQR44tKXScrewPWj95fZxX6AVGzJU6Ds3hs
+    JwIDAQABoyEwHzAdBgNVHQ4EFgQU7gYNQbHOY7idnMP05BELuQt08JowDQYJKoZI
+    hvcNAQELBQADggEBAJghnf9XaUyO9VsLi9oHFnboEljRffh6bnSrUyiMKyLLXUkL
+    udPIrgij+lq+jTf6vzLY7P79stdvY65+tQCJgfoE8kqfdVxS+OpjBtHpQauh89Pt
+    nvGBp0b02keoT16snuljACltB8CCJ+QdG7nrOX0kw7gMuOAbHoOpKtUvZSG0woqo
+    20rZO1FEzUxeqozr4HEenGIIUNo7aogYNuvX7j926aEs798C2rtfHitrKnYgfNHt
+    qoLwnW9ofHZ3mDwjKxqJcpLUqR9MfJX2DWA9Ns7MSBv3eL7VkTtYDyM9zAVKV362
+    9bLOwTacQK+cHFKg3zG/3pDM70lLGji2qeHecFM=
+    -----END CERTIFICATE-----
+     ```
+1. Click **Save**.
+
 ##<a id='install'></a> Install and Configure WSO2 API Manager
 
 To install the WSO2 API Manager for PCF file on the Ops Manager Installation Dashboard,
@@ -29,63 +80,69 @@ This adds the tile to your staging area.
     2. Network: Select pcf-pas-network
 
 1. Database configurations page:
-    2. Registry Database Connection Information:
-        3. JDBC URL:
-            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&amp;useSSL=false`
-            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
-        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
-        being used.
-        3. Validation Query: SELECT 1
-        3. Username: Username for database
-        3. Password: Password for the database
-    2. User Management Database Connection Information:
-        3. JDBC URL:
-            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&amp;useSSL=false`
-            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
-        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
-        being used.
-        3. Validation Query: SELECT 1
-        3. Username: Username for database
-        3. Password: Password for the database
-    2. API Manager Database Connection Information:
-        3. JDBC URL:
-            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&amp;useSSL=false`
-            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
-        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
-        being used.
-        3. Validation Query: SELECT 1
-        3. Username: Username for database
-        3. Password: Password for the database
-    2. API Manager - Analytics Database connection information:
-        3. JDBC URL:
-            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&useSSL=false`
-            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
-        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
-        being used.
-        3. Validation Query: SELECT 1
-        3. Username: Username for database
-        3. Password: Password for the database
-    2. API Manager - Analytics Clustering Database connection information:
-        3. JDBC URL:
-            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&useSSL=false`
-            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
-        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
-        being used.
-        3. Validation Query: SELECT 1
-        3. Username: Username for database
-        3. Password: Password for the database
-    2. API Manager- Analytics persistence Database connection information:
-        3. JDBC URL:
-            4. MySQL: `jdbc:mysql://<hostname>:<port>/<db_name>?autoReconnect=true&useSSL=false`
-            4. MS SQL: `jdbc:sqlserver://<hostname>:<port>;databaseName=<db_name>;`
-        3. Driver Class Name: Select the class name of the JDBC driver relevant to the database
-        being used.
-        3. Validation Query: SELECT 1
-        3. Username: Username for database
-        3. Password: Password for the database
-    2. Note that the JDBC URL for MySQL in (d), (e), (f), does not contain \&amp;. Instead, it indicates the & symbol.
-       This is due to the fact that in (a), (b) , &#40;c), configurations data are in XML format, and \&amp; is used as an escape character.
-       However, the configuration data in (d), (e), (f), are in YAML format and therefore, an escape character is not required.
+
+    <br/>
+    Applicable Databases: Registry Database, User Management Database, and API Manager Database
+
+    <table>
+         <tr>
+             <th>Database Type</th>
+             <th>JDBC URL</th>
+             <th>Driver Class Name</th>
+             <th>Validation Query</th>
+             <th>Username </th>
+             <th>Password</th>
+         </tr>
+
+         <tr>
+            <td>MySQL</td>
+            <td><code>jdbc:mysql://&lt;hostname&gt;:&lt;port&gt;/&lt;db_name&gt;?autoReconnect=true&amp;amp;useSSL=false</code></td>
+            <td><code>com.mysql.jdbc.Driver</code></td>
+            <td rowspan="2"><code>SELECT 1</code></td>
+            <td rowspan="2">Username for database</td>
+            <td rowspan="2">Password for database</td>
+         </tr>
+
+         <tr>
+          <td>MS SQL</td>
+          <td><code>jdbc:sqlserver://&lt;hostname&gt;:&lt;port&gt;;databaseName=&lt;db_name&gt;;</code></td>
+          <td><code>com.microsoft.sqlserver.jdbc.SQLServerDriver</code></td>
+         </tr>
+    </table>
+    <br/>
+    Applicable Databases: API Manager - Analytics Database, API Manager - Analytics Clustering Database, API Manager- Analytics persistence Database
+
+    <table>
+        <tr>
+            <th>Database Type</th>
+            <th>JDBC URL</th>
+            <th>Driver Class Name</th>
+            <th>Validation Query</th>
+            <th>Username </th>
+            <th>Password</th>
+        </tr>
+
+        <tr>
+           <td>MySQL</td>
+           <td><code>jdbc:mysql://&lt;hostname&gt;:&lt;port&gt;/&lt;db_name&gt;?autoReconnect=true&useSSL=false</code></td>
+           <td><code>com.mysql.jdbc.Driver</code></td>
+           <td rowspan="2"><code>SELECT 1</code></td>
+           <td rowspan="2">Username for database</td>
+           <td rowspan="2">Password for database</td>
+        </tr>
+
+        <tr>
+         <td>MS SQL</td>
+         <td><code>jdbc:sqlserver://&lt;hostname&gt;:&lt;port&gt;;databaseName=&lt;db_name&gt;;</code></td>
+         <td><code>com.microsoft.sqlserver.jdbc.SQLServerDriver</code></td>
+        </tr>
+    </table>
+    <br/>
+    Please use "latin1" as the character set for the database. You can use the following command to create the database.
+
+    `mysql> create database <DATABASE_NAME> character set latin1;`
+
+    Please find more details [here](https://docs.wso2.com/display/AM260/Installing+and+Configuring+the+Databases).
 
 1. Trusted CA certificate page:
    ![Cert](images/cert.png)
