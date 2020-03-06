@@ -1,16 +1,16 @@
 ---
-title: Installing and Configuring WSO2 API Manager for Pivotal Platform
+title: Installing and Configuring WSO2 API Manager for VMware Tanzu
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to install and configure WSO2 API Manager for Pivotal Platform.
+This topic describes how to install and configure WSO2 API Manager for VMware Tanzu.
 
 ##<a id='install'></a> Configure trusted CA certificates for GoRouter
 To configure trusted CA certificates for GoRouter, do the following:
 
-1. In Ops Manager, select the PAS tile.
+1. In Ops Manager, select the TAS for VMs tile.
 1. Go to the **Networking** pane in the **Settings** tab.
 1. Append the following to the **Certificate Authorities Trusted by Router and HAProxy**.
 
@@ -59,11 +59,11 @@ To configure trusted CA certificates for GoRouter, do the following:
 1. Click **Save**.
 
 1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to apply the changes
-to the PAS tile.
+to the TAS for VMs tile.
 
 ##<a id='install'></a> Install and Configure WSO2 API Manager
 
-To install the WSO2 API Manager for Pivotal Platform file on the Ops Manager Installation Dashboard,
+To install the WSO2 API Manager for VMware Tanzu file on the Ops Manager Installation Dashboard,
 do the following:
 
 1. Download the product file from Pivotal Network.
@@ -71,10 +71,10 @@ do the following:
 1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the
 product file.
 
-1. Under the **Import a Product** button, click **+** next to the version number of WSO2 API Manager for Pivotal Platform.
+1. Under the **Import a Product** button, click **+** next to the version number of WSO2 API Manager for VMware Tanzu.
 This adds the tile to your staging area.
 
-1. Click the newly added **WSO2 API Manager for Pivotal Platform** tile.
+1. Click the newly added **WSO2 API Manager for VMware Tanzu** tile.
 
 1. AZ and Network Assignments Page:
     ![Zones](images/zone.png)
@@ -155,4 +155,4 @@ This adds the tile to your staging area.
 1. Click **Save**.
 
 1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install WSO2 API
-Manager for Pivotal Platform.
+Manager for VMware Tanzu.
